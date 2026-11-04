@@ -59,3 +59,4 @@ foreach ($r in $routes) {
 
 Remove-Item -Recurse -Force $userDataDir -ErrorAction SilentlyContinue
 Write-Host "All screenshots captured successfully!"
+
