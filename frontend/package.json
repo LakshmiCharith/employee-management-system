@@ -1,0 +1,40 @@
+{
+  "name": "ems-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.51.11",
+    "@tanstack/react-table": "^8.19.3",
+    "axios": "^1.7.2",
+    "chart.js": "^4.4.3",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.3.19",
+    "lucide-react": "^0.417.0",
+    "react": "^19.0.0-rc-6f73f7217d-20240722",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^19.0.0-rc-6f73f7217d-20240722",
+    "react-hook-form": "^7.52.1",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.2.1",
+    "react-router-dom": "^6.25.1",
+    "sweetalert2": "^11.12.3",
+    "tailwind-merge": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.7",
+    "vite": "^5.3.4"
+  }
+}

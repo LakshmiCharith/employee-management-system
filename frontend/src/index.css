@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#070a12] text-slate-100 min-h-screen transition-colors duration-300 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* Strict Input & Icon Positioning Classes (Guarantees zero overlap) */
+.input-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-with-icon {
+  width: 100% !important;
+  background-color: #090d16 !important;
+  border: 1px solid #1e293b !important;
+  border-radius: 0.75rem !important;
+  padding-left: 2.85rem !important; /* 45px padding guarantees text never collides with icon */
+  padding-right: 1rem !important;
+  padding-top: 0.7rem !important;
+  padding-bottom: 0.7rem !important;
+  font-size: 0.75rem !important;
+  color: #f8fafc !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.input-with-icon::placeholder {
+  color: #475569 !important;
+}
+
+.input-with-icon:focus {
+  outline: none !important;
+  border-color: #06b6d4 !important;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2) !important;
+}
+
+.input-icon-left {
+  position: absolute !important;
+  left: 0.95rem !important;
+  width: 1.1rem !important;
+  height: 1.1rem !important;
+  color: #06b6d4 !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  @apply bg-slate-900/80 backdrop-blur-2xl border border-slate-800/90 shadow-2xl shadow-slate-950/80;
+}
+
+.glass-card {
+  @apply bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-cyan-500/40 hover:shadow-cyan-500/10 transition-all duration-300 shadow-xl;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #070a12;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}

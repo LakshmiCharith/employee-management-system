@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ems-backend
+  profiles:
+    active: dev
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+# JWT Configuration
+app:
+  jwt:
+    secret: 9a6f8b1c4e7d2a5f8e3b1c4e7d2a5f8e3b1c4e7d2a5f8e3b1c4e7d2a5f8e3b1c
+    expiration-ms: 86400000 # 24 hours
+  upload:
+    dir: ./uploads
