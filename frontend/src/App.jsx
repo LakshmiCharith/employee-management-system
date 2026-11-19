@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
@@ -16,6 +16,11 @@ import PayrollPage from './pages/payroll/PayrollPage';
 import ReportsPage from './pages/reports/ReportsPage';
 import SettingsPage from './pages/settings/SettingsPage';
 import NotFound from './pages/NotFound';
+
+// Use HashRouter for local file protocol snapshots and BrowserRouter for Vercel / production web hosting
+const Router = typeof window !== 'undefined' && window.location.protocol === 'file:'
+  ? HashRouter
+  : BrowserRouter;
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
