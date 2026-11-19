@@ -5,6 +5,7 @@
 [![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Firebase](https://img.shields.io/badge/Firebase-11.0-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
 [![Firestore](https://img.shields.io/badge/Cloud_Firestore-Database-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/docs/firestore)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel&logoColor=white)](https://vercel.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A modern, cloud-native **Employee Management System (EMS)** engineered with high performance, role-based access control (RBAC), real-time attendance tracking, leave request lifecycles, monthly payroll computation, and data export reporting.
@@ -147,11 +148,15 @@ const firebaseConfig = {
 
 ---
 
-### 3. Run Development Server
+### 3. Deploy to Vercel
+The repository is fully configured for zero-configuration Vercel deployment via [`vercel.json`](vercel.json):
+1. Import your GitHub repository into [Vercel](https://vercel.com/new).
+2. Click **Deploy**. Vercel will automatically build the application and serve it on your custom `.vercel.app` production domain.
+
+Or deploy via Vercel CLI:
 ```bash
-npm run dev
+npx vercel --prod
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
