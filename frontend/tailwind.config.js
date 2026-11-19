@@ -8,24 +8,40 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: '#f0f3ff',
-          100: '#e0e7ff',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
-          900: '#312e81',
+        cyber: {
+          void: '#02040a',
+          dark: '#030712',
+          card: '#070b18',
+          panel: '#090e21',
+          border: '#15203b',
+          borderBright: '#1e325c',
+          cyan: '#00f5ff',
+          neonCyan: '#06b6d4',
+          neonPurple: '#a855f7',
+          neonGreen: '#00ff88',
+          neonRose: '#ff2a6d',
+          neonAmber: '#fbbf24',
         },
-        dark: {
-          bg: '#0f172a',
-          card: '#1e293b',
-          border: '#334155',
-          text: '#f8fafc',
-          muted: '#94a3b8',
-        }
+        brand: {
+          50: '#ecfeff',
+          100: '#cffafe',
+          500: '#06b6d4',
+          600: '#0891b2',
+          700: '#0e7490',
+          900: '#164e63',
+        },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        cyber: ['"Orbitron"', 'sans-serif'],
+        tech: ['"Rajdhani"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
+      boxShadow: {
+        'neon-cyan': '0 0 20px -2px rgba(6, 182, 212, 0.45)',
+        'neon-purple': '0 0 20px -2px rgba(168, 85, 247, 0.45)',
+        'neon-green': '0 0 20px -2px rgba(0, 255, 136, 0.45)',
+        'cyber-panel': '0 10px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px -5px rgba(6, 182, 212, 0.15)',
       },
       backdropBlur: {
         xs: '2px',
