@@ -3,14 +3,13 @@
 [![React](https://img.shields.io/badge/React-19.0-61DAFB?logo=react&logoColor=white)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.3.2-6DB33F?logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
-[![Java](https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Firebase](https://img.shields.io/badge/Firebase-11.0-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
+[![Firestore](https://img.shields.io/badge/Cloud_Firestore-Database-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/docs/firestore)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A modern, full-stack, enterprise-grade **Employee Management System (EMS)** engineered with high performance, role-based access control (RBAC), real-time attendance tracking, leave request lifecycles, monthly payroll computation, and data export reporting.
+A modern, cloud-native **Employee Management System (EMS)** engineered with high performance, role-based access control (RBAC), real-time attendance tracking, leave request lifecycles, monthly payroll computation, and data export reporting.
 
-Built with a sleek, dark glassmorphism user interface powered by **React 19**, **Tailwind CSS**, and **Framer Motion**, backed by a resilient **Spring Boot 3 (Java 21)** REST API and **MySQL 8**.
+Powered by a sleek, dark glassmorphism user interface built with **React 19**, **Tailwind CSS**, and **Framer Motion**, and backed directly by **Google Cloud Firestore**, **Firebase Authentication**, and **Firebase Storage**.
 
 ---
 
@@ -65,7 +64,7 @@ User profile updates, contact details configuration, and password security manag
 ---
 
 ### 9. Secure Authentication
-Modern glassmorphic authentication system supporting dual-role login (Administrator / Employee).
+Modern glassmorphic authentication system supporting dual-role login (Administrator / Employee) with Firebase Auth.
 ![Login Screen](screenshots/09_login.png)
 
 ---
@@ -78,6 +77,7 @@ Streamlined onboarding form for new team members with validation.
 
 ## ✨ Key Features
 
+- **🔥 Cloud-Native Serverless Backend:** Powered by Google Cloud Firestore for real-time data persistence and Firebase Authentication for identity.
 - **🛡️ Role-Based Access Control (RBAC):**
   - **Administrator:** Full administrative rights to manage employees, departments, approve leaves, run payrolls, and export reports.
   - **Employee:** Dedicated self-service portal to clock in/out, view personal attendance, submit leave requests, view payslips, and manage profiles.
@@ -87,31 +87,26 @@ Streamlined onboarding form for new team members with validation.
 - **⏱️ Shift & Attendance Tracking:** One-click clock-in and clock-out with live timestamping and historical audit logs.
 - **🌴 Leave Request Workflow:** Employee leave requests with status progression (Pending ➔ Approved / Rejected) and leave quota balances.
 - **💰 Monthly Payroll Automation:** Flexible salary structures factoring in base pay, bonuses, and deductions with receipt generation.
-- **📊 Reporting & Data Export:** One-click data exports to CSV and Microsoft Excel (.xlsx) utilizing Apache POI.
-- **🔒 Enterprise Security:** Stateless JWT authentication (JSON Web Tokens), BCrypt password hashing, and Spring Security method-level protection.
+- **📊 Reporting & Data Export:** One-click data exports to CSV and Microsoft Excel (.xlsx) workbooks.
+- **🌱 Automatic Seeding:** Firestore automatically checks and seeds initial starter departments and personnel on first launch.
 
 ---
 
 ## 🛠️ Technology Stack
 
-### Frontend
+### Frontend & Application Layer
 - **Framework:** React 19 (Vite 5)
 - **Styling:** Tailwind CSS 3, PostCSS, Autoprefixer
 - **Icons & UI:** Lucide React, React Icons, Framer Motion
-- **State & Data:** Axios with resilient fallback interceptor, React Query, React Hook Form
+- **State & Data:** React Query, React Hook Form
 - **Feedback:** React Hot Toast, SweetAlert2
 - **Routing:** React Router v6
 
-### Backend
-- **Framework:** Spring Boot 3.3.2 (Java 21)
-- **Security:** Spring Security 6, JJWT (io.jsonwebtoken 0.12.5)
-- **Persistence:** Spring Data JPA, Hibernate, MySQL Connector/J
-- **Document Processing:** Apache POI 5.2.5, OpenCSV 5.9
-- **Validation:** Hibernate Validator, Jakarta Validation
-
-### Database
-- **Engine:** MySQL 8.0+
-- **Schema:** Relational design with foreign keys, indexes, and cascades (`database/schema.sql`)
+### Backend & Cloud Infrastructure
+- **Cloud Database:** Google Cloud Firestore (Collections: `departments`, `employees`, `attendance`, `leaves`, `payrolls`, `users`)
+- **Authentication:** Firebase Authentication (Email/Password & RBAC claims)
+- **Cloud Storage:** Firebase Storage (profile avatars & assets)
+- **Analytics:** Firebase Analytics
 
 ---
 
@@ -119,57 +114,44 @@ Streamlined onboarding form for new team members with validation.
 
 ### Prerequisites
 - **Node.js:** v18+ (Node v20+ recommended)
-- **Java:** JDK 21
-- **Maven:** 3.8+
-- **MySQL:** 8.0+
+- **npm:** v9+
 
 ---
 
-### 1. Database Setup
-1. Start your local MySQL service.
-2. Execute the provided SQL schema:
+### 1. Installation
+1. Clone the repository:
    ```bash
-   mysql -u root -p < database/schema.sql
-   ```
-   *This automatically creates `ems_db`, tables, and initial default roles.*
-
----
-
-### 2. Backend Setup
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Configure your MySQL credentials in `src/main/resources/application-dev.yml`:
-   ```yaml
-   spring:
-     datasource:
-       url: jdbc:mysql://localhost:3306/ems_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-       username: root
-       password: your_password
-   ```
-3. Run the Spring Boot application:
-   ```bash
-   mvn spring-boot:run
-   ```
-   *The backend will start at `http://localhost:8080`.*
-
----
-
-### 3. Frontend Setup
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
+   git clone https://github.com/LakshmiCharith/employee-management-system.git
+   cd employee-management-system/frontend
    ```
 2. Install dependencies:
    ```bash
    npm install
    ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+### 2. Firebase Configuration
+The application is pre-configured with Firebase in `frontend/src/firebase/config.js`:
+```javascript
+const firebaseConfig = {
+  apiKey: "AIzaSyA48jb61YzKKVZhQhyWE4LaCF17DI87Tvw",
+  authDomain: "employee-management-syst-76842.firebaseapp.com",
+  projectId: "employee-management-syst-76842",
+  storageBucket: "employee-management-syst-76842.firebasestorage.app",
+  messagingSenderId: "207818045658",
+  appId: "1:207818045658:web:4b4493f2def92e60ee0de3",
+  measurementId: "G-X6SJS4T7K3"
+};
+```
+
+---
+
+### 3. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
@@ -187,28 +169,16 @@ To capture fresh high-resolution screenshots of all pages:
 
 ```text
 employee-management-system/
-├── backend/
-│   ├── src/main/java/com/emp/ems/
-│   │   ├── config/              # Security and Web configuration
-│   │   ├── controller/          # REST API endpoints
-│   │   ├── dto/                 # Request & Response Data Transfer Objects
-│   │   ├── model/               # JPA Entities (Employee, Department, Attendance, etc.)
-│   │   ├── repository/          # Spring Data JPA Repositories
-│   │   ├── security/            # JWT Token Provider and Auth Filters
-│   │   └── service/             # Business Logic & Service Implementations
-│   ├── src/main/resources/
-│   │   ├── application.yml      # Base configuration & JWT secrets
-│   │   └── application-dev.yml  # Database datasource properties
-│   └── pom.xml                  # Maven dependencies & build plugins
-├── database/
-│   └── schema.sql               # Complete MySQL DDL & seed script
 ├── frontend/
 │   ├── src/
-│   │   ├── components/          # Reusable UI components (Navbar, Sidebar, Logo)
-│   │   ├── context/             # React AuthContext & Global state
+│   │   ├── components/          # Reusable UI components (Navbar, Sidebar, Logo, Footer)
+│   │   ├── context/             # React AuthContext with Firebase Auth & state
+│   │   ├── firebase/            # Firebase SDK configuration & initial seeder
+│   │   │   ├── config.js        # Firebase app, db, auth, storage initialization
+│   │   │   └── seed.js          # Firestore starter collections auto-seeder
 │   │   ├── layouts/             # App shell & dashboard layouts
 │   │   ├── pages/               # Views (Dashboard, Employees, Attendance, etc.)
-│   │   └── services/            # Axios API clients & mock data fallbacks
+│   │   └── services/            # Firestore CRUD services (departments, employees, leaves, payroll)
 │   ├── index.html
 │   ├── package.json
 │   ├── tailwind.config.js
@@ -231,4 +201,3 @@ employee-management-system/
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-

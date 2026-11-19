@@ -16,6 +16,7 @@
     "axios": "^1.7.2",
     "chart.js": "^4.4.3",
     "clsx": "^2.1.1",
+    "firebase": "^13.4.0",
     "framer-motion": "^11.3.19",
     "lucide-react": "^0.417.0",
     "react": "^19.0.0-rc-6f73f7217d-20240722",
